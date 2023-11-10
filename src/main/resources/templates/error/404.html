@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lo sentimos, Ooops!</title>
+</head>
+<body>
+<h1>Lo sentimos, pagina no encontrada</h1>
+    <div>
+        <ul>
+            <li th:text="${error}"></li>
+            <li th:text="${status}"></li>
+            <li th:text="${timestamp}"></li>
+            <li th:text="${path}"></li>
+        </ul>
+    </div>
+
+</body>
+</html>
