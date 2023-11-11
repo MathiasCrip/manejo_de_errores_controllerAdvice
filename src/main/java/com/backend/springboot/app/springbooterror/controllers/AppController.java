@@ -33,18 +33,8 @@ public class AppController {
     /*Si el id del usuario existe, muestra la vista 'ver.html', si no existe, carga la vista generica.html*/
     @GetMapping("/ver/{id}")
     public String ver(@PathVariable Integer id, Model model) {
-            /*PROGRAMACION IMPERATIVA*/
 
-//        Usuario usuarioEncontrado = usuarioService.ObtenerPorId(id);
-//        if (usuarioEncontrado == null) {
-//            throw new UsuarioNoEncontradoException(id);
-//        }
-
-        /*IMPLEMENTADO CON LA API STREAM()*/
-        Usuario usuarioEncontrado = usuarioService.listar().stream()
-                .filter(u -> u.getId().equals(id))
-                .findFirst()
-                .orElseThrow(() -> new UsuarioNoEncontradoException(id));
+        Usuario usuarioEncontrado = usuarioService.ObtenerPorId(id);
 
         model.addAttribute("usuario", usuarioEncontrado);
         model.addAttribute("Detalle del usuario :" + usuarioEncontrado.getNombre().concat(" " + usuarioEncontrado.getApellido()));
